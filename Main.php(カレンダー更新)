@@ -82,7 +82,9 @@
         border-collapse: collapse;
         width: 700px;
         margin-left: auto;
-        margin-right: auto;    
+        margin-right: auto;
+        margin-top:10px;
+        margin-bottom:10px;
       }
       .syuu td{
         height: 30px;
@@ -98,7 +100,7 @@
       <h3><a href="?ym=<?php echo $prev; ?>">&lt;</a><?php echo $html_title; ?><a href="?ym=<?php echo $next; ?>">&gt;</a></h3>
      <p> <a href="new.html">新規登録</a></p>
      <table border ="1">
-       <tr><th>日にち</th><th>時間</th><th>タイトル</th><th>場所</th><th>内容</th><th>重要度</th></tr>
+       <tr><th>日にち</th><th>時間</th><th>タイトル</th><th>場所</th><th>内容</th><th>重要度</th><th>削除</th></tr>
        <?php
        $user ='jobtest1';
        $pass ='sakiyama0910';
@@ -121,6 +123,7 @@
            echo '<td>'.$row['place'].'</td>';
            echo '<td>'.$row['content'].'</td>';
            echo '<td>'.$row['importance'].'</td>';
+           echo '<td><a href ="delete.php?id='.$row['id'].'">削除</a></td>';  
            echo '</tr>';
          }
        ?>

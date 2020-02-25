@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+    <style>
+      body{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>新規登録票</h1>
+    <form method="POST" action="new.php">
+     <input type="text" name="text" value="" maxlength="11" size="11">
+     <br>
+     <a>予定日:</a>
+     <input type="number" name="month" value="" max="12" min="1">月
+     <input type="number" name="day" value="" max="31" min="1">日
+     <br>
+     <a>予定時間:</a>
+     <input type="number" name="hour_start" value="" max="24" min="00">時
+     <input type="number" name="secound_start" value="" max="60" min="00">分～
+     <input type="number" name="hour_end" value="" max="24" min="00">時
+     <input type="number" name="secound_end" value=""  max="60" min="00">分
+     <br>
+     <a>場所:</a>
+     <input type="text" name="place" size="11" max="11">
+     <br>
+    <a>内容:</a><br>
+    <textarea rows="4" cols="40" name="context"></textarea>
+    <br>
+    <a>重要度</a>
+    <input type="radio" name="importance" value="5">5
+    <input type="radio" name="importance" value="4">4
+    <input type="radio" name="importance" value="3">3
+    <input type="radio" name="importance" value="2">2
+    <input type="radio" name="importance" value="1">1
+    <br>
+    <input type="submit" name="submit" value="保存">
+    <input type="reset" name="reset" value="リセット">
+    </form> 
+    <a href="main.php">戻る</a>
+  </body>
+</html>

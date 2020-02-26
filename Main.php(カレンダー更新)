@@ -68,3 +68,52 @@
      }
   }
 ?>
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>カレンダー仕事管理表トップ</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class ="container">
+      <h3><a href="?ym=<?php echo $prev; ?>">&lt;</a><?php echo $html_title; ?><a href="?ym=<?php echo $next ; ?>">&gt;</a></h3>
+     <p class="new"> <a href="new.html">新規登録</a></p>
+     <table border ="1">
+       <tr><th>日にち</th><th>時間</th><th>タイトル</th><th>場所</th><th>内容</th><th>重要度</th><th>削除</th></tr>
+       <?php
+          $sql = "SELECT * FROM job";
+          $stmt = $dbh->query($sql);
+         foreach($stmt as $row){
+           echo '<tr>';
+           echo '<td>'.$row['month'].'月'.$row['day'].'日</td>';
+           echo '<td>'.$row['hour_start'].'時'.$row['minute_start'].'分～'.$row['hour_end'].'時'.$row['minute_end'].'分</td>';
+           echo '<td>'.$row['title'].'</td>';
+           echo '<td>'.$row['place'].'</td>';
+           echo '<td>'.$row['content'].'</td>';
+           echo '<td>'.$row['importance'].'</td>';
+           echo '<td><a href ="delete.php?id='.$row['id'].'">削除</a></td>';  
+           echo '</tr>';
+         }
+       ?>
+     </table>
+      <table  border="1"  class="table-bordered">
+        <tr class="syuu">
+          <td>日</td>
+          <td>月</td>
+          <td>火</td>
+          <td>水</td>
+          <td>木</td>
+          <td>金</td>
+          <td>土</td>
+        </tr>
+        <?php
+          foreach($weeks as $week){
+            echo $week;
+          }
+        ?>
+      </table>
+    </div>
+  </body>
+</html>
